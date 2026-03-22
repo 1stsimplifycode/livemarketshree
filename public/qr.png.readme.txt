@@ -1,0 +1,5 @@
+INSTRUCTIONS:
+Place your UPI QR code image here as:  public/qr.png
+
+The payment modal will automatically load it.
+Recommended size: 300x300 px (PNG or JPG)

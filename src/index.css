@@ -1,0 +1,119 @@
+/* ─── LiveMarketAI Global Styles ─── */
+:root {
+  --az-navy: #131921;
+  --az-nav: #1a2535;
+  --az-orange: #FF9900;
+  --az-orange-hover: #e68a00;
+  --az-yellow: #F0C14B;
+  --az-yellow-hover: #dba935;
+  --az-light-bg: #EAEDED;
+  --az-white: #ffffff;
+  --az-border: #ddd;
+  --az-text: #0F1111;
+  --az-text-secondary: #565959;
+  --az-link: #007185;
+  --az-link-hover: #C7511F;
+  --az-green: #067D62;
+  --az-red: #B12704;
+  --az-star: #FF9900;
+  --az-prime: #00A8E1;
+  --az-card-shadow: 0 2px 5px rgba(15,17,17,.15);
+  --az-card-shadow-hover: 0 4px 12px rgba(15,17,17,.25);
+  --az-radius: 4px;
+  --az-font: 'Inter', 'Amazon Ember', Arial, sans-serif;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  font-family: var(--az-font);
+  background-color: var(--az-light-bg);
+  color: var(--az-text);
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: inherit; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+button { cursor: pointer; font-family: var(--az-font); }
+
+/* ─── Scrollbar ─── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: #f1f1f1; }
+::-webkit-scrollbar-thumb { background: #aaa; border-radius: 3px; }
+
+/* ─── Price animations ─── */
+@keyframes priceUp {
+  0% { background-color: transparent; }
+  30% { background-color: #d4edda; }
+  100% { background-color: transparent; }
+}
+@keyframes priceDown {
+  0% { background-color: transparent; }
+  30% { background-color: #f8d7da; }
+  100% { background-color: transparent; }
+}
+.price-up { animation: priceUp 0.8s ease; }
+.price-down { animation: priceDown 0.8s ease; }
+
+/* ─── Spinner ─── */
+@keyframes spin { to { transform: rotate(360deg); } }
+.spinner {
+  width: 40px; height: 40px;
+  border: 3px solid var(--az-border);
+  border-top-color: var(--az-orange);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+  margin: 40px auto;
+}
+
+/* ─── Pulse shimmer for loading cards ─── */
+@keyframes shimmer {
+  0% { background-position: -1000px 0; }
+  100% { background-position: 1000px 0; }
+}
+.shimmer {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 1000px 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 4px;
+}
+
+/* ─── Toast notifications ─── */
+.toast-container {
+  position: fixed; bottom: 20px; right: 20px;
+  z-index: 9999; display: flex; flex-direction: column; gap: 8px;
+}
+.toast {
+  padding: 12px 16px; border-radius: 4px; font-size: 14px; font-weight: 500;
+  box-shadow: 0 4px 12px rgba(0,0,0,.15);
+  animation: slideIn 0.3s ease;
+  max-width: 320px;
+}
+.toast.success { background: #1e8a1e; color: white; }
+.toast.error { background: #B12704; color: white; }
+.toast.info { background: #131921; color: white; }
+@keyframes slideIn {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+/* ─── Badge variants ─── */
+.badge-bestseller { background: #CC0C39; color: white; }
+.badge-choice { background: #007185; color: white; }
+.badge-trending { background: #565959; color: white; }
+.badge-prime { background: #00A8E1; color: white; }
+.badge-deal { background: #CC0C39; color: white; }
+.badge-default { background: #565959; color: white; }
+
+/* ─── Star rating ─── */
+.stars { color: var(--az-star); letter-spacing: -2px; font-size: 16px; }
+
+/* ─── Responsive utils ─── */
+.container { max-width: 1500px; margin: 0 auto; padding: 0 12px; }
+
+@media (max-width: 768px) {
+  .hide-mobile { display: none !important; }
+}
